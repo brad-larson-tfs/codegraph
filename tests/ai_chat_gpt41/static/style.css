@@ -1,0 +1,17 @@
+body { font-family: system-ui, sans-serif; }
+.mic-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb; /* indigo-600 */
+  color: white;
+  border-radius: 9999px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+.mic-btn.listening { background: #dc2626; } /* red‑600 when active */
+#chat .bubble { max-width: 70%; padding: 12px 16px; border-radius: 1rem; }
+.bubble.user { background: #2563eb; color: #fff; margin-left: auto; }
+.bubble.assistant { background: #e5e7eb; color: #111; }

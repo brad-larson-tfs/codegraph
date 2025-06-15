@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+websockets
+python-dotenv
+openai>=1.14.0  # supports Realtime API beta
+pydub           # simple WAV ↔︎ PCM helpers (optional)py 
