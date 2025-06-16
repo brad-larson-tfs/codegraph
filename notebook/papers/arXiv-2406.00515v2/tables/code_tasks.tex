@@ -1,0 +1,41 @@
+\begin{table}[t] 
+\caption{\done{
+The applications of code LLMs in various code-related understanding and generation tasks. 
+The I-O column indicates the type of input and output for each task, where C, NL, and K represent code, natural language, and label, respectively. 
+Note that the detailed definitions of each task aligns with the descriptions in \cite{ahmad2021unified,austin2021program,niu2022deep,athiwaratkun2022multi,zan2023large}. 
+The main scope of this survey focuses on code generation while it may involve code completion in Section \ref{sec:repository_level} and \ref{sec:retrieval_augmented}, aiming to illustrate the corresponding advancements.
+% To enhance clarity, it might be beneficial for the paper to explicitly differentiate between these tasks and provide a more nuanced definition that acknowledges the varied applications of LLMs in code-related tasks.
+}}
+\label{tab:code_tasks}
+\centering
+\scalebox{0.77}{
+    \begin{tabular}{clll} 
+    \toprule
+    \textbf{Type} & \textbf{I-O} & \textbf{Task} & \textbf{Definition}  \\
+    \midrule
+\multirow{12}*{Understanding} 
+    & \multirow{8}*{C-K} & Code Classification & \makecell[l]{Classify code snippets based on functionality, purpose, or attributes \\ to aid in organization and analysis.} \\
+    &  & Bug Detection & \makecell[l]{Detect and diagnose bugs or vulnerabilities in code to ensure \\ functionality and security.} \\
+    &  & Clone Detection & \makecell[l]{Identifying duplicate or similar code snippets in software to enhance \\ maintainability, reduce redundancy, and check plagiarism.} \\
+    &  & Exception Type Prediction & \makecell[l]{Predict different exception types in code to manage and handle \\ exceptions effectively.} \\
+    \cmidrule{2-4}
+    & C-C & Code-to-Code Retrieval & \makecell[l]{Retrieve relevant code snippets based on a given \\ code query for reuse or analysis.} \\ 
+    \cmidrule{2-4}
+    & NL-C & Code Search & \makecell[l]{Find relevant code snippets based on natural language \\queries to facilitate coding and development tasks.} \\
+    % &  & Code Question Answering &  \\
+\midrule
+\multirow{15}*{Generation} 
+    & \cellcolor{gray!15} \multirow{11}*{C-C} & \cellcolor{gray!15}Code Completion & \cellcolor{gray!15} \makecell[l]{Predict and suggest the next portion of code, given contextual \\information from the prefix (and suffix), while typing to enhance \\ development speed and accuracy.} \\
+    &  & Code Translation & \makecell[l]{Translate the code from one programming language to another \\while preserving functionality and logic.} \\
+    &  & Code Repair & \makecell[l]{Identify and fix bugs in code by generating the correct version to \\improve functionality and reliability.} \\
+    &  & Mutant Generation & \makecell[l]{Generate modified versions of code to test and evaluate the \\effectiveness of testing strategies.} \\
+    &  & Test Generation & \makecell[l]{Generate test cases to validate code functionality, performance,\\ and robustness.} \\
+    % &  & Assert Generation & Generate a correct unit test assert statement. \\
+    \cmidrule{2-4}
+    & C-NL & Code Summarization & \makecell[l]{Generate concise textual descriptions or explanations of code to \\enhance understanding and documentation.} \\ 
+    \cmidrule{2-4}
+    & \cellcolor{yellow!40}NL-C & \cellcolor{yellow!40} Code Generation & \cellcolor{yellow!40} \makecell[l]{Generate source code from natural language descriptions to \\streamline development and reduce manual coding efforts.} \\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}

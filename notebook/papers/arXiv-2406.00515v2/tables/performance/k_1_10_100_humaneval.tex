@@ -1,0 +1,88 @@
+\begin{table}[t] \color{blue}
+% \begin{wraptable}{R}{0.5\linewidth}
+\caption{
+% The Performance (\texttt{Pass@1}, \texttt{Pass@10}, and \texttt{Pass@100}) comparison of LLMs for code generation on HumanEval benchmark. For the model with various model size, we only report the largest size version of each model.
+\revise{The performance comparison of LLMs for code generation on the HumanEval \cite{chen2021evaluating} benchmark, measured by \texttt{Pass@\{1,10,100\}}. 
+Due to the limitations of computational resources we faced, we directly cite the experimental results from the original papers or widely recognized open-source leaderboard in research community.
+For models with various sizes, we report only the largest size version of each model with the magnitude of \texttt{B} parameters.
+DeepSeek-Coder-V2-Instruct is a 
+} 
+}
+\label{tab:performance_humaneval}
+\centering
+\scalebox{0.83}{
+\rotatebox{0}{
+    \begin{tabular}{clccccc}
+    \toprule
+    & \multirow{2}{*}{\textbf{Model}} & \multirow{2}{*}{\textbf{Size}} & \multicolumn{3}{c}{{\texttt{pass@k}}} & \multirow{2}{*}{\textbf{Availability}} \\ 
+    \cmidrule(l){4-6}
+       &   &   & $k=1$ & $k=10$ & $k=100$ & \\ 
+\midrule
+    \multirow{5}{*}{\textbf{Closed Source}} 
+         & GPT-4o & - &       & -        & -         & \\
+         & GPT-4-Turbo & - &       & -        & -         & \\
+         & GPT-4 \cite{achiam2023gpt}& - & 84.1      & -        & -         & \\
+         & GPT-3.5-Turbo \cite{gpt-3.5-turbo}& - & 76.2    & -        & - & \\
+         & Claude-3-Opus \cite{claude3} & - & 82.9 & - & - & \\
+         & Claude-3-Haiku \cite{claude3} & - & 76.8 & - & - & \\
+         & Claude-3-Sonnet \cite{claude3} & - & 70.7 & - & - & \\
+         \midrule
+    \multirow{33}{*}{\textbf{Open Source}} 
+         & Codestral & 22B & 81.1\% &  &  & \\
+         & DeepSeek-Coder-V2-Instruct & 21B (236B) & 90.2\% &  &  & \\
+         & Qwen2.5-Coder & &  &  &  & \\
+         & StarCoder2-Instruct \cite{starcoder2instruct} &  15.5B  & 72.6 & - & - & \\
+         % Llama3 \cite{llama3} & 70B & 81.7 & - & - & \\
+         & CodeGemma \cite{codegemma_2024}  & 7B  & 44.5 & - & - & \\
+         & StarCoder 2 \cite{lozhkov2024starcoder}  & 15B & 46.3 & - & - & \\
+         % phi-2 \cite{phi-2}   & 2.7B & 49.4 & - & - & \\
+         & WaveCoder \cite{yu2023wavecoder} & 6.7B & 75 & - & - & \\
+         & StableCode \cite{pinnaparaju2024stable} & 3B & 29.3 & - & - & \\
+         & CodeShell \cite{xie2024codeshell} & 7B & 34.32 & - & - & \\
+         & CodeQwen \cite{codeqwen} & 14B & 45.1 & - & -& \\
+         & DeepSeek-Coder-Instruct \cite{guo2024deepseek} & 33B & 79.3 & - & - & \\
+         & DeepSeek-Coder \cite{guo2024deepseek} & 33B & 56.1 & - & - & \\
+         & replit-code \cite{replit-code} & 3B & 20.12 & - & - & \\
+         % Phi-1.5 \cite{li2023textbooks} & 1.3B & 41.4 & - & - & \\
+         & PanGu-Coder2 \cite{shen2023pangu} & 15B & 61.64   & 79.55    & 91.75    & \\
+         & WizardCoder \cite{luo2023wizardcoder} & 15B & 57.3    & 73.2     & 90.46     & \\
+         & CodeFuse \cite{liu2023mftcoder} & 34B & 74.4    & -        & -         & \\
+         & Phi-1 \cite{gunasekar2023textbooks} & 1.3B & 50.6    & -        & -         & \\
+         & Code Llama \cite{roziere2023code} & 34B & 48.8    & 76.8     & 93.0      & \\
+         & OctoCoder \cite{muennighoff2023octopack} & 15.5B & 46.2    & -        & -         & \\
+         & PaLM-Coder \cite{chowdhery2023palm} & 540B & 36      & -        & 88.4      & \\
+         & CodeGeeX2 \cite{zheng2023codegeex} & 6B & 35.9    & 62.6     & 88.3      & \\
+         & InstructCodeT5+ \cite{wang2023codet5+} & 16B & 35.0    & 54.5     & 77.9      & \\
+         % CodeGen \cite{nijkamp2022codegen} & 16.1B & 34.6    & -        & -         & \\
+        & CodeGen-NL \cite{nijkamp2022codegen} & 16.1B & 14.24    & 23.46        & 38.33         & \\
+        & CodeGen-Multi \cite{nijkamp2022codegen} & 16.1B & 18.32    & 32.07        & 50.8     & \\
+        & CodeGen-Mono \cite{nijkamp2022codegen} & 16.1B & 29.28    & 49.86        & 75         & \\
+        & StarCoder \cite{li2023starcoder} & 15B & 33.60   & 45.78    & 79.82     & \\
+        & CodeT5+ \cite{wang2021codet5} & 16B & 30.9    & 51.6     & 76.7      & \\
+        % LLaMA2 \cite{touvron2023llama2} & 70B & 30.5    & 59.4     & 87.0      & \\
+        % & Codex \cite{chen2021evaluating} & 12B & 28.81   & 46.81    & 72.31     & \\
+        % PaLM \cite{chowdhery2023palm} & 540B & 26.2    & -        & 76.2      & \\
+        & PanGu-Coder \cite{christopoulou2022pangu} & 2.6B & 23.78   & 35.36    & 51.24     & \\
+        % LLaMA \cite{touvron2023llama} & 65B & 23.7    & -        & 79.3      & \\
+        & CodeGeeX \cite{zheng2023codegeex} & 13B & 22.89   & 39.57    & 60.92     & \\
+        & Replit \cite{Replit} & 3B & 21.9    & -        & -         & \\
+        & CodeGen2 \cite{nijkamp2023codegen2} & 16B & 20.46   & 36.5     & 56.71     & \\
+         & SantaCoder \cite{allal2023santacoder} & 1.1B & 18        & 29      & 49& \\
+         & AlphaCode \cite{li2022competition} & 1.1B & 17.1      & 28.2    & 45.3& \\
+         % BLOOM \cite{le2023bloom} & 176B & 15.52     & 32.20   & 55.45& \\
+         % GPT-NeoX \cite{black2022gpt} & 20B & 15.4      & 25.6    & 41.2& \\
+         & InCoder \cite{fried2022incoder} & 6.7B & 15.2      & 27.8    & 47.0& \\
+         % LaMDA & 137B & 14.0      & -       & 47.3& \\
+         % GPT-J \cite{gpt-j} & 6B & 11.62     & 15.74   & 27.74& \\
+         % PyCodeGPT \cite{zan2022cert} & 110M & 8.33      & 13.36   & 19.13& \\
+         % GPT-Neo \cite{gpt-neo} & 2.7B & 6.41      & 11.27   & 21.37& \\
+         & PolyCoder \cite{xu2022systematic} & 2.7B & 5.59      & 9.84    & 17.68& \\
+         % JuPyT5 \cite{chandel2022training} & 300M & 5.4       & 15.46   & 25.60& \\
+         & CodeParrot \cite{tunstall2022natural} & 1.5B & 3.99      & 8.69    & 17.88& \\  
+    \bottomrule
+    \end{tabular}
+}
+}
+\vspace{-10pt}
+% \end{wraptable}
+\end{table}

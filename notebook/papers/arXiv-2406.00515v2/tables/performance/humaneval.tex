@@ -1,0 +1,101 @@
+\begin{table}[t!] 
+% \begin{wraptable}{R}{0.5\linewidth}
+\caption{
+% The Performance (\texttt{Pass@1}, \texttt{Pass@10}, and \texttt{Pass@100}) comparison of LLMs for code generation on HumanEval benchmark. For the model with various model size, we only report the largest size version of each model.
+\done{The performance comparison of LLMs for code generation on the HumanEval \cite{chen2021evaluating} benchmark, measured by \texttt{Pass@1}. 
+% Due to the limitations of computational resources we faced, we directly cite the experimental results from the original papers or widely recognized open-source leaderboard in research community.
+For models with various sizes, we report only the largest size version of each model with a magnitude of \texttt{B} parameters. $^\ddag$ denotes instruction-tuned models.
+% DeepSeek-Coder-V2-Instruct is an open-source Mixture-of-Experts (MoE) code language
+% model, which has 236B parameters with only 21B activation parameters. 
+} 
+}
+\label{tab:performance_humaneval}
+\centering
+\scalebox{0.75}{
+\rotatebox{0}{
+    \begin{tabular}{clrcc}
+    \toprule
+    & \textbf{Model} & \textbf{Size} & \texttt{pass@1} (\%) & \textbf{Availability} \\ 
+       % &   &   & $k=1$ & $k=10$ & $k=100$ & \\ 
+\midrule
+    \multirow{17}{*}{\textbf{Closed Source}} 
+         & GPT-4o-0513 \cite{gpt-4o} & - & 91.0 & \href{https://openai.com/index/hello-gpt-4o/}{[API Access]} \\
+         & GPT-4-Turbo-0409 \cite{gpt-4-turbo} & - & 88.2 &  \href{https://openai.com/blog/new-models-and-developer-products-announced-at-devday}{[API Access]} \\
+         & GPT-4-1106 \cite{achiam2023gpt}& - & 87.8  & \href{https://openai.com/index/gpt-4/}{[API Access]} \\
+         & GPT-3.5-Turbo-0125 \cite{gpt-3.5-turbo}& - & 76.2  & \href{https://openai.com/index/new-embedding-models-and-api-updates}{[API Access]} \\
+         & \cellcolor{yellow!40}Claude-3.5-Sonnet \cite{claude3} & \cellcolor{yellow!40}- & \cellcolor{yellow!40}\textbf{92.0} & \href{https://claude.ai/}{[API Access]} \\
+         & Claude-3-Opus \cite{claude3} & - & 84.9 & \href{https://www.anthropic.com/news/claude-3-family}{[API Access]} \\
+         & Claude-3-Sonnet \cite{claude3} & - & 73.0 & \href{https://www.anthropic.com/news/claude-3-family}{[API Access]} \\
+         & Claude-3-Haiku \cite{claude3} & - & 75.9 & \href{https://www.anthropic.com/news/claude-3-family}{[API Access]} \\
+         & Gemini-1.5-Pro \cite{reid2024gemini} & - & 84.1 & \href{https://deepmind.google/technologies/gemini/pro/}{[API Access]} \\
+         & Gemini-1.5-Flash \cite{reid2024gemini} & - & 74.3 & \href{https://deepmind.google/technologies/gemini/flash/}{[API Access]} \\
+         & Gemini-1.0-Ultra \cite{reid2024gemini} & - & 74.4 & \href{https://deepmind.google/technologies/gemini/ultra/}{[API Access]} \\
+         & Gemini-1.0-Pro \cite{reid2024gemini} & - & 67.7 & \href{https://deepmind.google/technologies/gemini/pro/}{[API Access]} \\
+         \cline{2-5}
+         & $^\ddag$PanGu-Coder2 \cite{shen2023pangu} & 15B & 61.64     & - \\
+         & PanGu-Coder \cite{christopoulou2022pangu} & 2.6B & 23.78        & - \\
+         & Codex \cite{chen2021evaluating} & 12B & 28.81 & Deprecated \\
+         & PaLM-Coder \cite{chowdhery2023palm} & 540B & 36     & - \\
+         & AlphaCode \cite{li2022competition} & 1.1B & 17.1     & - \\
+         \midrule
+    \multirow{36}{*}{\textbf{Open Source}} 
+         & $^\ddag$Codestral \cite{codestral} & 22B & 81.1 &  \href{https://huggingface.co/mistralai/Codestral-22B-v0.1}{[Checkpoint Download]} \\
+         & \cellcolor{yellow!40}$^\ddag$DeepSeek-Coder-V2-Instruct \cite{zhu2024deepseek}  & \cellcolor{yellow!40}21B (236B) & \cellcolor{yellow!40}\textbf{90.2} & \href{https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct}{[Checkpoint Download]}\\
+         & \cellcolor{yellow!40}$^\ddag$Qwen2.5-Coder-Instruct \cite{hui2024qwen2} & \cellcolor{yellow!40}7B & \cellcolor{yellow!40}88.4 & \href{https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct}{[Checkpoint Download]}\\
+         & Qwen2.5-Coder \cite{hui2024qwen2} & 7B & 61.6  & \href{https://huggingface.co/Qwen/Qwen2.5-Coder-7B}{[Checkpoint Download]}\\
+         & $^\ddag$StarCoder2-Instruct \cite{starcoder2instruct} &  15.5B  & 72.6 & \href{https://huggingface.co/bigcode/starcoder2-15b-instruct-v0.1}{[Checkpoint Download]} \\
+         % Llama3 \cite{llama3} & 70B & 81.7 & - & - & \href{}{[Checkpoint Download]}  \\
+         & $^\ddag$CodeGemma-Instruct \cite{codegemma_2024}  & 7B  & 56.1  & \href{https://huggingface.co/google/codegemma-7b-it}{[Checkpoint Download]}  \\
+         & CodeGemma \cite{codegemma_2024}  & 7B  & 44.5  & \href{https://huggingface.co/google/codegemma-7b}{[Checkpoint Download]}  \\
+         & StarCoder 2 \cite{lozhkov2024starcoder}  & 15B & 46.3 & \href{https://huggingface.co/bigcode/starcoder2-15b}{[Checkpoint Download]}\\
+         % phi-2 \cite{phi-2}   & 2.7B & 49.4 & - & - & \href{}{[Checkpoint Download]}  \\
+         & $^\ddag$WaveCoder-Ultra \cite{yu2023wavecoder} & 6.7B & 79.9  & \href{https://huggingface.co/microsoft/wavecoder-ultra-6.7b}{[Checkpoint Download]}  \\
+         & $^\ddag$WaveCoder-Pro \cite{yu2023wavecoder} & 6.7B & 74.4  & \href{https://huggingface.co/microsoft/wavecoder-pro-6.7b}{[Checkpoint Download]}  \\
+         & $^\ddag$WaveCoder-DS \cite{yu2023wavecoder} & 6.7B & 65.8  & \href{https://huggingface.co/microsoft/wavecoder-ds-6.7b}{[Checkpoint Download]}  \\
+         & StableCode \cite{pinnaparaju2024stable} & 3B & 29.3  & \href{https://huggingface.co/stabilityai/stable-code-3b}{[Checkpoint Download]}  \\
+         & CodeShell \cite{xie2024codeshell} & 7B & 34.32  & \href{https://huggingface.co/WisdomShell/CodeShell-7B}{[Checkpoint Download]}  \\
+         & $\ddag$CodeQwen1.5-Chat \cite{codeqwen} & 7B & 83.5 & \href{https://huggingface.co/Qwen/CodeQwen1.5-7B-Chat}{[Checkpoint Download]}  \\
+         & CodeQwen1.5 \cite{codeqwen} & 7B & 51.8 & \href{https://huggingface.co/Qwen/CodeQwen1.5-7B}{[Checkpoint Download]}  \\
+         & $^\ddag$DeepSeek-Coder-Instruct \cite{guo2024deepseek} & 33B & 79.3  & \href{https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct}{[Checkpoint Download]}  \\
+         & DeepSeek-Coder \cite{guo2024deepseek} & 33B & 56.1  & \href{https://huggingface.co/deepseek-ai/deepseek-coder-33b-base}{[Checkpoint Download]}  \\
+         & replit-code \cite{replit-code} & 3B & 20.12  & \href{https://huggingface.co/replit/replit-code-v1-3b}{[Checkpoint Download]}  \\
+         % Phi-1.5 \cite{li2023textbooks} & 1.3B & 41.4 & - & - & \href{}{[Checkpoint Download]}  \\
+         & $^\ddag$Magicoder$S$-CL \cite{wei2023magicoder} & 7B & 70.7 & \href{https://huggingface.co/ise-uiuc/Magicoder-S-CL-7B}{[Checkpoint Download]} \\
+         & $^\ddag$Magicoder-CL \cite{wei2023magicoder} & 7B & 60.4 & \href{https://huggingface.co/ise-uiuc/Magicoder-CL-7B}{[Checkpoint Download]}\\
+         & $^\ddag$WizardCoder \cite{luo2023wizardcoder} & 33B & 79.9        & \href{https://huggingface.co/WizardLM/WizardCoder-33B-V1.1}{[Checkpoint Download]}  \\
+         & CodeFuse \cite{liu2023mftcoder} & 34B & 74.4     & \href{https://huggingface.co/TheBloke/CodeFuse-CodeLlama-34B-GGUF}{[Checkpoint Download]}  \\
+         & Phi-1 \cite{gunasekar2023textbooks} & 1.3B & 50.6          & \href{https://huggingface.co/microsoft/phi-1}{[Checkpoint Download]}  \\
+         & $^\ddag$Code Llama-Instruct \cite{roziere2023code} & 70B & 67.8 & \href{https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf}{[Checkpoint Download]}  \\
+         & Code Llama \cite{roziere2023code} & 70B & 53.0  & \href{https://huggingface.co/codellama/CodeLlama-70b-hf}{[Checkpoint Download]}  \\
+         & $^\ddag$OctoCoder \cite{muennighoff2023octopack} & 15.5B & 46.2   & \href{https://huggingface.co/bigcode/octocoder}{[Checkpoint Download]}  \\
+         & CodeGeeX2 \cite{zheng2023codegeex} & 6B & 35.9          & \href{https://huggingface.co/THUDM/codegeex2-6b}{[Checkpoint Download]}  \\
+         & $^\ddag$InstructCodeT5+ \cite{wang2023codet5+} & 16B & 35.0          & \href{https://huggingface.co/Salesforce/instructcodet5p-16b}{[Checkpoint Download]}  \\
+         % CodeGen \cite{nijkamp2022codegen} & 16.1B & 34.6    & -        & -         & \href{}{[Checkpoint Download]}  \\
+        & CodeGen-NL \cite{nijkamp2022codegen} & 16.1B & 14.24             & \href{https://huggingface.co/Salesforce/codegen-16B-nl}{[Checkpoint Download]}  \\
+        & CodeGen-Multi \cite{nijkamp2022codegen} & 16.1B & 18.32        & \href{https://huggingface.co/Salesforce/codegen-16B-multi}{[Checkpoint Download]}  \\
+        & CodeGen-Mono \cite{nijkamp2022codegen} & 16.1B & 29.28           & \href{https://huggingface.co/Salesforce/codegen-16B-mono}{[Checkpoint Download]}  \\
+        & StarCoder \cite{li2023starcoder} & 15B & 33.60     & \href{https://huggingface.co/bigcode/starcoder}{[Checkpoint Download]}  \\
+        & CodeT5+ \cite{wang2021codet5} & 16B & 30.9    & \href{https://huggingface.co/Salesforce/codet5p-16b}{[Checkpoint Download]}  \\
+        % LLaMA2 \cite{touvron2023llama2} & 70B & 30.5    & 59.4     & 87.0      & \href{}{[Checkpoint Download]}  \\
+        % PaLM \cite{chowdhery2023palm} & 540B & 26.2    & -        & 76.2      & \href{}{[Checkpoint Download]}  \\
+        % LLaMA \cite{touvron2023llama} & 65B & 23.7    & -        & 79.3      & \href{}{[Checkpoint Download]}  \\
+        % & CodeGeeX \cite{zheng2023codegeex} & 13B & 22.89       &   \\
+        & CodeGen2 \cite{nijkamp2023codegen2} & 16B & 20.46       & \href{https://huggingface.co/Salesforce/codegen2-16B_P}{[Checkpoint Download]}  \\
+         & SantaCoder \cite{allal2023santacoder} & 1.1B & 14.0        & \href{https://huggingface.co/bigcode/santacoder}{[Checkpoint Download]}  \\
+         % BLOOM \cite{le2023bloom} & 176B & 15.52     & 32.20   & 55.45& \href{}{[Checkpoint Download]}  \\
+         % GPT-NeoX \cite{black2022gpt} & 20B & 15.4      & 25.6    & 41.2& \href{}{[Checkpoint Download]}  \\
+         & InCoder \cite{fried2022incoder} & 6.7B & 15.2     & \href{https://huggingface.co/facebook/incoder-6B}{[Checkpoint Download]}  \\
+         % LaMDA & 137B & 14.0      & -       & 47.3& \href{}{[Checkpoint Download]}  \\
+         % GPT-J \cite{gpt-j} & 6B & 11.62     & 15.74   & 27.74& \href{}{[Checkpoint Download]}  \\
+         % PyCodeGPT \cite{zan2022cert} & 110M & 8.33      & 13.36   & 19.13& \href{}{[Checkpoint Download]}  \\
+         % GPT-Neo \cite{gpt-neo} & 2.7B & 6.41      & 11.27   & 21.37& \href{}{[Checkpoint Download]}  \\
+         & PolyCoder \cite{xu2022systematic} & 2.7B & 5.59   & \href{https://huggingface.co/NinedayWang/PolyCoder-2.7B}{[Checkpoint Download]}  \\
+         % JuPyT5 \cite{chandel2022training} & 300M & 5.4       & 15.46   & 25.60& \href{}{[Checkpoint Download]}  \\
+         & CodeParrot \cite{tunstall2022natural} & 1.5B & 3.99   & \href{https://huggingface.co/codeparrot/codeparrot}{[Checkpoint Download]} \\  
+    \bottomrule
+    \end{tabular}
+}
+}
+\vspace{-10pt}
+% \end{wraptable}
+\end{table}

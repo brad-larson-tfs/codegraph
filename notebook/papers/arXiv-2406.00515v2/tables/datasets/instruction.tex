@@ -1,0 +1,24 @@
+\begin{table}[t]
+\caption{
+% Statistics of several pretraining datasets for code models: size in bytes, number of files, and number of programming languages. In CodeSearchNet each file is a function. For Pile and ROOTS we only consider their code composite.
+The statistics of several representative datasets used in instruction-tuning \done{LLMs} for code generation. The column labeled `\textbf{\#PL}' indicates the number of programming languages encompassed by each dataset. 
+}
+\label{tab:instruction_dataset}
+\centering
+\scalebox{0.6}{
+\rotatebox{0}{
+    \begin{tabular}{lllll}
+    \toprule
+        \textbf{Dataset} & \textbf{Size} & \textbf{\#PL} & \textbf{Date} & \textbf{Link}\\
+    \midrule
+        CodeAlpaca-20K \cite{codealpaca} & 20k &  -  & 2023-03  & \url{https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k}\\
+        CommitPackFT \cite{muennighoff2023octopack} & 2GB & 277  & 2023-08  & \url{https://huggingface.co/datasets/bigcode/commitpackft}\\
+        Evol-Instruct-Code-80k \cite{evol_instruction} & 80k &  - & 2023-07 & \url{https://huggingface.co/datasets/nickrosh/Evol-Instruct-Code-80k-v1}\\
+        evol-codealpaca-v1 \cite{evol-codealpaca-v1} & 110K & - & 2023-07 & \href{https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1}{https://huggingface.co/datasets/theblackcat102/evol-codealpaca-v1}\\
+        Magicoder-OSS-Instruct-75k \cite{wei2023magicoder} & 75k & \begin{tabular}[c]{@{}l@{}}Python, Shell, \\TypeScript, C++, \\Rust, PHP, Java, \\Swift, C\#\end{tabular}  & 2023-12 & \url{https://huggingface.co/datasets/ise-uiuc/Magicoder-OSS-Instruct-75K}\\
+        \makecell[l]{Self-OSS-Instruct-SC2-Exec-Filter-50k \cite{starcoder2instruct}} & 50k &  Python  & 2024-04  & \url{https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k}\\
+    \bottomrule
+    \end{tabular}
+}
+}
+\end{table}

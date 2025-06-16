@@ -1,0 +1,68 @@
+\begin{table}[t]
+\caption{
+\done{The overview of \done{LLMs} with decoder-only architectures for code generation.} 
+}
+\label{tab:decoder_only_models}
+\centering
+\scalebox{0.75}{
+\rotatebox{0}{
+    \begin{tabular}{lllcccc} 
+    \toprule
+    \textbf{Model} & \textbf{Institution} & \textbf{Size} & \textbf{Vocabulary} & \textbf{\makecell[c]{Context\\ Window}} & \textbf{Date} & \textbf{Open Source} \\
+    \midrule
+% \multirow{48}*{Decoder-Only}  
+GPT-C \cite{svyatkovskiy2020intellicode} & Microsoft & 366M      &60K	&1024	 &  2020-05 	 &   \\
+CodeGPT \cite{lu2021codexglue}   & Microsoft & 124M      	&	50K &1024	 &  2021-02 	 &  \CheckmarkBold \\
+GPT-Neo\cite{gpt-neo} & EleutherAI & \makecell[l]{125M, 1.3B, 2.7B} 	& 50k	&	2048 &  2021-03 &  \CheckmarkBold \\
+  GPT-J \cite{gpt-j} & EleutherAI & 6B  &	50k &	2048 &  2021-05 &  \CheckmarkBold  \\         
+  Codex \cite{chen2021evaluating}  & OpenAI  & \makecell[l]{12M, 25M, 42M, \\85M, 300M, 679M,\\ 2.5B, 12B} & -	& 4096	 &  2021-07 &   \\
+  CodeParrot \cite{tunstall2022natural}   & Hugging Face  & 110M, 1.5B & 33k &	1024 &  2021-11 &  \CheckmarkBold \\
+ PolyCoder \cite{xu2022systematic}    & CMU & 160M, 400M, 2.7B &	50k	&2048	 &  2022-02 	 &  \CheckmarkBold \\
+  CodeGen \cite{nijkamp2022codegen}   & Salesforce & \makecell[l]{350M, 2.7B, 6.1B, \\16.1B}  &	51k 	&	2048 &  2022-03 &  \CheckmarkBold \\
+  GPT-NeoX \cite{black2022gpt}   & EleutherAI  &   20B	&	50k &	2048 & 2022-04  & \CheckmarkBold  \\
+  PaLM-Coder \cite{chowdhery2023palm}   & Google  &  8B, 62B, 540B  & 256k  &	 2048	 &   2022-04 &   \\
+  InCoder \cite{fried2022incoder}   & Meta & 1.3B, 6.7B     &	50k	& 2049	 &  2022-04 	 &  \CheckmarkBold \\
+  PanGu-Coder \cite{christopoulou2022pangu}    & Huawei & 317M, 2.6B &	42k & 1024	 &  2022-07 	 &   \\
+  PyCodeGPT \cite{zan2022cert}   & Microsoft & 110M       &	32k & 1024    &  2022-06      & \CheckmarkBold  \\
+  CodeGeeX \cite{zheng2023codegeex}  & Tsinghua & 13B  	&	52k & 2048	 &  2022-09 	 &  \CheckmarkBold  \\
+  BLOOM \cite{le2023bloom}   & BigScience  &    176B &	 251k &	- &   2022-11 & \CheckmarkBold  \\
+  ChatGPT \cite{gpt-3.5-turbo}   & OpenAI  &  - & - &	16k & 2022-11 &  \CheckmarkBold \\
+  SantaCoder \cite{allal2023santacoder}   & Hugging Face & 1.1B  &	  49k  	&2048	 &  2022-12 	 &  \CheckmarkBold \\
+  LLaMA \cite{touvron2023llama}   &  Meta &   \makecell[l]{6.7B, 13.0B, 32.5B, \\65.2B} & 32K &	2048 & 2023-02  & \CheckmarkBold  \\
+  GPT-4 \cite{achiam2023gpt}   & OpenAI  &    -   	& -	&	32K &  2023-03 &   \\
+  CodeGen2 \cite{nijkamp2023codegen2}   & Salesforce  &  1B, 3.7B, 7B, 16B & 51k &	2048 &  2023-05 & \CheckmarkBold  \\
+  replit-code \cite{replit-code}   & replit  &    3B   &	33k	& 2048 &  2023-05 &  \CheckmarkBold \\
+  StarCoder \cite{li2023starcoder}   & Hugging Face & 15.5B  &	 49k  	&8192	 &  2023-05 	 & \CheckmarkBold  \\ 
+  WizardCoder \cite{luo2023wizardcoder}   &  Microsoft &  15B, 34B & 49k  & 8192 &  2023-06 &  \CheckmarkBold \\
+  phi-1 \cite{gunasekar2023textbooks}   & Microsoft & 1.3B    &	51k  	&2048	 &  2023-06 	 &  \CheckmarkBold \\
+% &  ChainCoder \cite{zheng2023outline}   &   &    &	 &   &   \\
+  CodeGeeX2 \cite{zheng2023codegeex}   & Tsinghua  &     6B  &	65k	&	8192 & 2023-07  &  \CheckmarkBold \\
+  PanGu-Coder2 \cite{shen2023pangu}   &  Huawei  &  15B &  42k & 1024  & 2023-07  &   \\
+  Llama 2 \cite{touvron2023llama2}   & Meta  &  7B, 13B, 70B   & 32K  &	4096 &  2023-07 &  \CheckmarkBold \\
+  OctoCoder \cite{muennighoff2023octopack}   & Hugging Face  &  15.5B & 49k	& 8192 &  2023-08 &  \CheckmarkBold\\
+  Code Llama \cite{roziere2023code}   & Meta  & 7B, 13B, 34B &	32k & 16384 &  2023-08 &  \CheckmarkBold \\
+  CodeFuse \cite{liu2023mftcoder}  & Ant Group & 350M, 13B, 34B  &	101k &4096	 &  2023-09 	 &  \CheckmarkBold \\
+  phi-1.5 \cite{li2023textbooks}   & Microsoft  & 1.3B & 51k	& 2048 & 2023-09 & \CheckmarkBold \\
+  CodeShell \cite{xie2024codeshell}   & Peking University & 7B & 70k	& 8192 &  2023-10 & \CheckmarkBold  \\
+ Magicoder \cite{wei2023magicoder}   & UIUC  & 7B & 32k & 16384 & 2023-12 & \CheckmarkBold  \\
+  AlphaCode 2 \cite{alphacode2}  &  Google DeepMind & - &	- & - &	  2023-12 &   \\ 
+  StableCode \cite{pinnaparaju2024stable}   &  StabilityAI  &   3B   &	 50k	& 16384 & 2024-01  &  \CheckmarkBold \\
+ WaveCoder \cite{yu2023wavecoder}   & Microsoft  & 6.7B & 32k	&	16384 & 2023-12  & \CheckmarkBold  \\
+  phi-2 \cite{phi-2}   & Microsoft  &     2.7B  	&	51k & 2048 &  2023-12 &  \CheckmarkBold \\
+  DeepSeek-Coder \cite{guo2024deepseek}  & DeepSeek  &  1.3B, 6.7B, 33B &	32k	& 16384 &  2023-11 &  \CheckmarkBold \\
+% &  StepCoder \cite{dou2024stepcoder}   &   &  	&	 &   &   \\
+% &  OpenCodeInterpreter \cite{zheng2024opencodeinterpreter}   &   &   &	 &   &   \\
+ StarCoder 2 \cite{lozhkov2024starcoder}   &  Hugging Face &  15B & 49k & 16384 & 2024-02  &  \CheckmarkBold \\
+ Claude 3 \cite{claude3}  & Anthropic & - & - &	200K & 2024-03 &   \\
+% &  ProCoder \cite{bi2024iterative}   &   &   &	 &   &   \\
+ CodeGemma \cite{codegemma_2024}  & Google  &2B, 7B  & 25.6k &  8192	& 2024-04 &  \CheckmarkBold \\
+ Code-Qwen \cite{codeqwen}  & Qwen Group & 7B & 92K & 65536 &2024-04& \CheckmarkBold \\
+ Llama3 \cite{llama3}   & Meta & 8B, 70B & 128K & 8192 & 2024-04 & \CheckmarkBold \\
+ StarCoder2-Instruct \cite{starcoder2instruct} & Hugging Face &  15.5B  & 49K & 16384 & 2024-04  & \CheckmarkBold  \\	 
+ Codestral \cite{codestral} & Mistral AI & 22B & 33k & 32k & 2024-05 & \CheckmarkBold \\
+% & CodeGen-Multi(Mono) & Salesforce & 350M-16.1B	&2048	 &  2022-03 	 &   \\ 
+    \bottomrule
+    \end{tabular}
+}
+}
+\end{table}

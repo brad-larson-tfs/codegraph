@@ -1,0 +1,217 @@
+\documentclass[acmsmall,screen]{acmart}
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmcopyright}
+\copyrightyear{2018}
+\acmYear{2018}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% These commands are for a JOURNAL article.
+% \acmJournal{TOSEM} 
+% \acmVolume{1}
+% \acmNumber{1}
+% \acmArticle{1}
+% \acmMonth{9}
+\acmJournal{JACM}
+\acmVolume{37}
+\acmNumber{4}
+\acmArticle{1}
+\acmMonth{8}
+
+%% Use package
+\usepackage{hyperref}       % hyperlinks
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage[edges]{forest}
+\definecolor{hiddendraw}{RGB}{205, 44, 36}
+\definecolor{hidden-blue}{RGB}{194,232,247}
+\definecolor{hidden-orange}{RGB}{243,202,120}
+\definecolor{hidden-yellow}{RGB}{242,244,193}
+\tikzstyle{mybox}=[
+    rectangle,
+    draw=hiddendraw,
+    rounded corners,
+    text opacity=1,
+    minimum height=1.5em,
+    minimum width=5em,
+    inner sep=2pt,
+    align=center,
+    fill opacity=.5,
+    ]
+\let\Bbbk\relax % resolve \Bbbk conflicts with `amssymb` and `newtxmath`
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{bbding}
+\usepackage{multirow} % merge rows
+\usepackage{subfigure}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\usepackage{mathtools}
+\usepackage{colortbl}
+
+% \usepackage{custom}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage[edges]{forest}
+\usepackage{enumitem}
+\usepackage{wrapfig} 
+\usepackage{makecell}
+
+\newcommand{\smallsection}[1]{\noindent {\bf \underline{#1}}.\hspace{1mm}}
+\newcommand{\ea}{\textit{et~al.}}
+
+\begin{document}
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{A Survey on Large Language Models for Code Generation}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Juyong Jiang}
+\email{jjiang472@connect.hkust-gz.edu.cn}
+\authornote{Equally major contributors.}
+\affiliation{
+  \institution{The Hong Kong University of Science and Technology (Guangzhou)}
+  \city{Guangzhou}
+  % \state{PA}
+  \country{China}}
+
+\author{Fan Wang}
+\email{fwang380@connect.hkust-gz.edu.cn}
+\authornotemark[1]
+\affiliation{
+  \institution{The Hong Kong University of Science and Technology (Guangzhou)}
+  \city{Guangzhou}
+  % \state{PA}
+  \country{China}}
+
+\author{Jiasi Shen}
+\email{sjs@cse.ust.hk}
+\authornote{Corresponding authors.}
+\affiliation{
+  \institution{The Hong Kong University of Science and Technology}
+  \city{Hong Kong}
+  % \state{PA}
+  \country{China}}
+
+\author{Sungju Kim}
+\email{sungju.kim@navercorp.com}
+\authornotemark[2]
+\affiliation{
+  \institution{NAVER Cloud} % Hyperscale AI
+  \city{Seoul}
+  % \state{PA}
+  \country{South Korea}}
+  
+\author{Sunghun Kim}
+\email{hunkim@cse.ust.hk}
+\authornotemark[2]
+\affiliation{
+  \institution{The Hong Kong University of Science and Technology (Guangzhou)}
+  \city{Guangzhou}
+  % \state{PA}
+  \country{China}}
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+% \renewcommand{\shortauthors}{Jiang et al.}
+\newcommand{\sjs}[1]{{\color{black} #1}}
+\newcommand{\kath}[1]{{\color{black} #1}}
+\newcommand{\revise}[1]{{\color{black} #1}}
+\newcommand{\done}[1]{{\color{black} #1}}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+Large Language Models (LLMs) have garnered remarkable advancements across diverse code-related tasks, known as Code LLMs, particularly in code generation that generates source code with LLM from natural language descriptions. This burgeoning field has captured significant interest from both academic researchers and industry professionals due to its practical significance in software development, \textit{e.g., GitHub Copilot}. Despite the active exploration of LLMs for a variety of code tasks, either from the perspective of natural language processing (NLP) or software engineering (SE) or both, there is a noticeable absence of a comprehensive and up-to-date literature review dedicated to LLM for code generation. In this survey, we aim to bridge this gap by providing a systematic literature review that serves as a valuable reference for researchers investigating the cutting-edge progress in LLMs for code generation. We introduce a taxonomy to categorize and discuss the recent developments in LLMs for code generation, covering aspects such as data curation, latest advances, performance evaluation, ethical implications, environmental impact, and real-world applications. In addition, we present a historical overview of the evolution of LLMs for code generation and offer an empirical comparison using the HumanEval, MBPP, and BigCodeBench benchmarks across various levels of difficulty and types of programming tasks to highlight the progressive enhancements in LLM capabilities for code generation. We identify critical challenges and promising opportunities regarding the gap between academia and practical development. Furthermore, we have established a dedicated resource GitHub page (\href{https://github.com/juyongjiang/CodeLLMSurvey}{https://github.com/juyongjiang/CodeLLMSurvey}) to continuously document and disseminate the most recent advances in the field.
+\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10002944.10011122.10002945</concept_id>
+       <concept_desc>General and reference~Surveys and overviews</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10011007.10011074.10011092</concept_id>
+       <concept_desc>Software and its engineering~Software development techniques</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+   <concept>
+       <concept_id>10010147.10010178</concept_id>
+       <concept_desc>Computing methodologies~Artificial intelligence</concept_desc>
+       <concept_significance>500</concept_significance>
+       </concept>
+ </ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{General and reference~Surveys and overviews}
+\ccsdesc[500]{Software and its engineering~Software development techniques}
+\ccsdesc[500]{Computing methodologies~Artificial intelligence}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Large Language Models, Code Large Language Models, Code Generation}
+
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\input{section/1-introduction}
+\input{section/2-background}
+\done{\input{section/methodology}}
+\input{section/3-taxonomy}
+\input{section/4-overview}
+\input{section/5-challenges_opportunities}
+\input{section/6-conclusion}
+
+% \section*{Acknowledgements}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{ref}
+
+\end{document}
+
+

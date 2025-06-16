@@ -1,0 +1,61 @@
+\begin{table}[t]
+\caption{
+The detailed statistics of commonly-used benchmarks used in evaluating \done{LLMs} for code generation. 
+The column labeled `\textbf{\#PL}' indicates the number of programming languages included in each dataset. For the sake of brevity, we list the programming languages (PLs) for benchmarks that support fewer than or include five PLs. For benchmarks with six or more PLs, we provide only a numerical count of the PLs supported.
+}
+\label{tab:benchmark}
+\centering
+\scalebox{0.63}{
+\rotatebox{0}{
+    \begin{tabular}{llllcl}
+    \toprule
+        \textbf{Scenario} & \textbf{Benchmark} & \textbf{Size} & \textbf{\#PL} & \textbf{Date} & \textbf{Link}\\
+    \midrule
+        \multirow{15}*{General}& HumanEval \cite{chen2021evaluating} &164&Python& 2021-07&\url{https://huggingface.co/datasets/openai_humaneval}\\
+         & HumanEval+ \cite{liu2024your} &164&Python&2023-05&\url{https://huggingface.co/datasets/evalplus/humanevalplus}\\
+         & HumanEvalPack \cite{muennighoff2023octopack} &164&6&2023-08&\url{https://huggingface.co/datasets/bigcode/humanevalpack}\\
+         & MBPP \cite{austin2021program} &974&Python&2021-08&\url{https://huggingface.co/datasets/mbpp}\\
+         & MBPP+ \cite{liu2024your} &378&Python&2023-05&\url{https://huggingface.co/datasets/evalplus/mbppplus}\\
+         & CoNaLa \cite{yin2018learning} &596.88K&Python&2018-05&\url{https://huggingface.co/datasets/neulab/conala}\\
+         & Spider \cite{yu2018spider} &8,034&SQL&2018-09&\url{https://huggingface.co/datasets/xlangai/spider}\\
+         & CONCODE \cite{iyer2018mapping} &104K&Java&2018-08&\href{https://huggingface.co/datasets/AhmedSSoliman/CodeXGLUE-CONCODE}{\url{https://huggingface.co/datasets/AhmedSSoliman/CONCOD}}\\
+         & ODEX \cite{wang2022execution} &945&Python&2022-12&\url{https://huggingface.co/datasets/neulab/odex}\\
+         & CoderEval \cite{yu2024codereval} &460&Python, Java&2023-02&\url{https://github.com/CoderEval/CoderEval}\\
+         & ReCode \cite{wang2022recode} &1,138&Python&2022-12&\url{https://github.com/amazon-science/recode}\\
+         & StudentEval \cite{babe2023studenteval} &1,749&Python&2023-06&\url{https://huggingface.co/datasets/wellesley-easel/StudentEval} \\
+         & \done{BigCodeBench \cite{zhuo2024bigcodebench}} & \done{1,140} & \done{Python} & \done{2024-06}& \done{\url{https://huggingface.co/datasets/bigcode/bigcodebench}} \\
+         & \done{ClassEval \cite{du2024evaluating}} &\done{100} & \done{Python} & \done{2023-08}&\done{\url{https://huggingface.co/datasets/FudanSELab/ClassEval}} \\
+         & \done{NaturalCodeBench \cite{zhang2024naturalcodebench}} &\done{402} & \done{Python, Java} & \done{2024-05}&\done{\url{https://github.com/THUDM/NaturalCodeBench}} \\
+    \midrule
+        \multirow{3}*{Competitions} & APPS \cite{hendrycks2021measuring} &10,000&Python&2021-05&\url{https://huggingface.co/datasets/codeparrot/apps} \\
+        & CodeContests \cite{li2022competition} &13,610&\makecell[l]{C++, Python,\\ Java}&2022-02&\url{https://huggingface.co/datasets/deepmind/code_contests} \\
+        & \done{LiveCodeBench \cite{naman2024livecodebench}} &\done{\makecell[l]{713\\ Updating}} & \done{Python} & \done{2024-03}&\done{\url{https://github.com/LiveCodeBench/LiveCodeBench}} \\
+    \midrule
+        \multirow{3}*{Data Science} & DSP \cite{chandel2022training} &1,119&Python&2022-01&\url{https://github.com/microsoft/DataScienceProblems}\\
+        & DS-1000 \cite{lai2023ds} &1,000&Python&2022-11&\url{https://huggingface.co/datasets/xlangai/DS-1000} \\
+        & ExeDS \cite{huang2022execution} &534&Python&2022-11&\url{https://github.com/Jun-jie-Huang/ExeDS} \\
+    \midrule
+        \multirow{5}*{Multilingual} & MBXP \cite{athiwaratkun2022multi}  &12.4K&13&2022-10&\url{https://huggingface.co/datasets/mxeval/mbxp} \\
+        & Multilingual HumanEval \cite{athiwaratkun2022multi}  &1.9K&12&2022-10&\url{https://huggingface.co/datasets/mxeval/multi-humaneval} \\
+        & HumanEval-X \cite{zheng2023codegeex}  &820&\makecell[l]{Python, C++, \\Java, JavaScript,\\ Go}&2023-03&\url{https://huggingface.co/datasets/THUDM/humaneval-x} \\
+        & MultiPL-E \cite{cassano2022scalable}  &161&18&2022-08&\url{https://huggingface.co/datasets/nuprl/MultiPL-E} \\
+        & xCodeEval \cite{khan2023xcodeeval}  &5.5M&11&2023-03&\url{https://github.com/ntunlp/xCodeEval} \\
+    \midrule
+        \multirow{5}*{Reasoning} & MathQA-X \cite{athiwaratkun2022multi}  &5.6K& \makecell[l]{Python, Java, \\JavaScript} &2022-10&\url{https://huggingface.co/datasets/mxeval/mathqa-x} \\
+        & MathQA-Python \cite{austin2021program} &23,914&Python&2021-08& \url{https://github.com/google-research/google-research} \\
+        & GSM8K \cite{cobbe2021training} &8.5K&Python&2021-10&\url{https://huggingface.co/datasets/gsm8k} \\
+        & GSM-HARD \cite{gao2023pal} &1.32K&Python&2022-11&\url{https://huggingface.co/datasets/reasoning-machines/gsm-hard} \\
+        & \done{CRUXEval \cite{gu2024cruxeval}} &\done{800} & \done{Python} & \done{2024-01}&\done{\url{https://huggingface.co/datasets/cruxeval-org/cruxeval}} \\
+    \midrule
+        \multirow{7}*{Repository} & RepoEval \cite{zhang2023repocoder} &3,573&Python, Java&2023-03&\url{https://paperswithcode.com/dataset/repoeval} \\
+        & Stack-Repo \cite{shrivastava2023repofusion} & 200 &Java&2023-06&\url{https://huggingface.co/datasets/RepoFusion/Stack-Repo} \\
+        & Repobench \cite{liu2023repobench} & 27k  &Python, Java&2023-01&\url{https://github.com/Leolty/repobench} \\
+        & EvoCodeBench \cite{li2024evocodebench} &275&Python&2024-03&\url{https://huggingface.co/datasets/LJ0815/EvoCodeBench}\\
+        & SWE-bench \cite{jimenez2023swe} &2,294&Python&2023-10&\url{https://huggingface.co/datasets/princeton-nlp/SWE-bench} \\
+        & CrossCodeEval \cite{ding2024crosscodeeval} &10K&\makecell[l]{Python, Java,\\ TypeScript, C\#}&2023-10&\url{https://github.com/amazon-science/cceval} \\
+        & SketchEval \cite{zan2024codes} &20,355&Python&2024-03&\url{https://github.com/nl2code/codes} \\
+    \bottomrule
+    \end{tabular}
+}
+}
+\end{table}

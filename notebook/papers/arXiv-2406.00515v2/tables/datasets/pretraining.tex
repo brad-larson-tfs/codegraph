@@ -1,0 +1,26 @@
+\begin{table}[t]
+\caption{
+% The statistics of some commonly-used pre-training datasets for pre-training large language models for code generation. The \textbf{\#PL} denotes the number of programming languages. Note that, each file is a function in CodeSearchNet \cite{husain2019codesearchnet} dataset, and we only consider their code composite for the Pile \cite{gao2020pile} and ROOTS \cite{laurenccon2022bigscience}.
+The statistics of some commonly-used pre-training datasets for \done{LLMs} aimed at code generation. The column labeled `\textbf{\#PL}' indicates the number of programming languages included in each dataset. It should be noted that in the CodeSearchNet \cite{husain2019codesearchnet} dataset, each file represents a function, and for the Pile \cite{gao2020pile} and ROOTS \cite{laurenccon2022bigscience} datasets, only the code components are considered.
+}
+\label{tab:pretraining_dataset}
+\centering
+\scalebox{0.73}{
+\rotatebox{0}{
+    \begin{tabular}{llllcl}
+    \toprule
+        \textbf{Dataset} & \textbf{Size (GB)} & \textbf{Files (M)} & \textbf{\#PL} & \textbf{Date} & \textbf{Link}\\
+    \midrule
+        CodeSearchNet \cite{husain2019codesearchnet} & 20 & 6.5 & 6  & 2022-01 & \url{https://huggingface.co/datasets/code_search_net}\\
+        Google BigQuery\cite{hoffa2016github}  & - & - & - & 2016-06 & \href{https://cloud.google.com/blog/topics/public-datasets/github-on-bigquery-analyze-all-the-open-source-code}{\url{github-on-bigquery-analyze-all-the-open-source-code}} \\
+        The Pile \cite{gao2020pile} & 95 & 19 & - &  2022-01 & \url{https://huggingface.co/datasets/EleutherAI/pile}\\
+        CodeParrot \cite{tunstall2022natural} & 180 & 22 & 1 & 2021-08 & \url{https://huggingface.co/datasets/transformersbook/codeparrot}\\
+        GitHub Code\cite{tunstall2022natural} & 1,024 & 115 & 32 & 2022-02 & \url{https://huggingface.co/datasets/codeparrot/github-code}\\
+        ROOTS \cite{laurenccon2022bigscience} & 163 & 15 & 13 & 2023-03 & \url{https://huggingface.co/bigscience-data} \\
+        The Stack \cite{kocetkov2022stack} & 3,136 & 317 & 30 & 2022-10 & \url{https://huggingface.co/datasets/bigcode/the-stack}\\
+        The Stack v2 \cite{lozhkov2024starcoder} & 32K & 3K & 619 & 2024-04 & \url{https://huggingface.co/datasets/bigcode/the-stack-v2}\\
+    \bottomrule
+    \end{tabular}
+}
+}
+\end{table}

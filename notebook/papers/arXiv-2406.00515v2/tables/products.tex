@@ -1,0 +1,68 @@
+\begin{table}[p!]
+\caption{The overview of code assistant applications powered by \done{LLMs}. The column labeled `\textbf{PLs}' and `\textbf{IDEs}' indicate programming languages and integrated development environments, respectively \cite{zan2023large}.}
+\label{tab:products}
+\centering
+\scalebox{0.71}{
+\rotatebox{270}{
+    \begin{tabular}{llllll} 
+        \toprule
+        \textbf{Institution} & \textbf{Products} & \textbf{Model} & \textbf{Supported Features} & \textbf{Supported PLs} & \textbf{Supported IDEs} \\ 
+        \toprule
+        GitHub \& OpenAI & GitHub Copilot \cite{chen2021evaluating} & Codex & 
+        \begin{tabular}[c]{@{}l@{}} Code Completions, Code Generation, \\
+        Coding Questions Answering,\\ Code Refactoring, Code Issues Fix, \\Unit Test Cases Generation, \\Code Documentation Generation\end{tabular} &
+        \begin{tabular}[c]{@{}l@{}}Java, Python, JavaScript, TypeScript,\\Perl,~R,~PowerShell, Rust,~SQL,~CSS,~\\Ruby,  Julia,~C\#,~PHP,~Swift,~C++,Go,\\HTML, JSON, SCSS,~.NET, Less,\\T-SQL, Markdown\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}}Visual Studio, VS Code,~Neovim,\\JetBrains IDE\end{tabular}  \\ 
+        \midrule
+        Zhipu AI & CodeGeeX \cite{zheng2023codegeex} & CodeGeeX & 
+        \begin{tabular}[c]{@{}l@{}} Code Generation, Code Translation, \\Code Completion, Code Interpretation, \\Code Bugs Fix, Comment Generation, \\AI Chatbot\end{tabular} &
+        \begin{tabular}[c]{@{}l@{}}PHP, Go,~C,~C\#,~C++,~Rust,~Perl, CSS,\\Java, Python, JavaScript, TypeScript, \\Objective C++, Objective C, Pascal,\\HTML, SQL,~Kotlin,~R, Shell, Cuda,\\Fortran, Tex, Lean,~Scala\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}}Clion, RubyMine, AppCode,~Aqua,\\IntelliJ IDEA, VS Code, PyCharm,\\Android Studio, WebStorm,~Rider,\\GoLand, DataGrip, DataSpell\end{tabular} \\ 
+        \midrule
+        Amazon & CodeWhisperer \cite{CodeWhisperer} & $-$ & 
+        \begin{tabular}[c]{@{}l@{}} Code Completion, Code Explanation, \\ Code Translation, \\
+        Code Security Identification, \\ Code Suggestion \end{tabular} &
+        \begin{tabular}[c]{@{}l@{}}Java, Python, TypeScript, JavaScript,\\C\#\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}}JetBrains IDE, VS Code, AWS Cloud9,\\AWS Lambda\end{tabular} \\
+        \midrule
+        Codeium & Codeium \cite{Codeium} & $-$ & 
+        \begin{tabular}[c]{@{}l@{}} Code Completion, Bug Detection,\\Code Suggestions, AI Chatbot,\\Test Type Generation,\\Test Plan Creation,\\
+        Codebase Search\end{tabular} &
+        \begin{tabular}[c]{@{}l@{}} More than 70 languages in total,\\
+        including but not limited to:\\
+        C, C\#, C++, Dart, CSS, Go, Elixir,\\HTML, Haskell, Julia, Java, JavaScript,\\Lisp, Kotlin, Lua, Objective-C,\\Perl, Pascal, PHP, Protobuf,\\R, Python, Ruby, Scala, Rust,\\Swift, SQL, TS, Vue\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}} JetBrains, VSCode, Visual Studio,\\Colab, Jupyter, Deepnote,\\Notebooks, Databricks, Chrome,\\Vim, Neovim, Eclipse, Emacs,\\
+        VSCode Web IDEs, Sublime Text\end{tabular} \\
+        \midrule
+        Huawei & CodeArts Snap \cite{shen2023pangu} & PanGu-Coder &
+        \begin{tabular}[c]{@{}l@{}}Code Generation, Code Explanation\\ Research and Development Knowledge\\ Question and Answer\\ Code Comment, Code Debug \\Unit Test Case Generation \end{tabular} &
+        \begin{tabular}[c]{@{}l@{}}Java, Python \end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}}PyCharm, VS Code, IntelliJ \end{tabular} \\
+        \midrule
+        Tabnine & TabNine \cite{TabNine} & $-$ & 
+        \begin{tabular}[c]{@{}l@{}}Code Generation, Code Completion,\\Code Explanation, Bug Fix,\\
+        Code Recommendation, Code Refactoring,\\
+        Code Test Generation,\\Docstring Generation\end{tabular} &
+        \begin{tabular}[c]{@{}l@{}}Python, Javascript, Java, TypeScript,\\HTML, Haskell, Matlab, Kotlin, Sass,\\Go, PHP, Ruby, C, C\#, C++,~Swift,~\\Rust,~CSS,~Perl,~Angular, Dart, React,\\Objective C, NodeJS, Scala,~\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}}Sublime, PyCharm, Neovim,~Rider,\\VS Code, IntelliJ IDE, Visual Studio,\\PhpStorm, Vim, RubyMine,~DataGrip,\\Android Studio, WebStorm,~Emacs,\\Clion, Jupyter Notebook,~JupyterLab,\\Eclipse,~GoLand, AppCode\end{tabular}  \\ 
+        \midrule
+        Replit & Replit\cite{Replit} & replit-code & 
+        \begin{tabular}[c]{@{}l@{}} Code Completion, Code Editing,\\Code Generation, Code Explanation,\\
+        Code Suggestion, Code Test Generation\end{tabular} &
+        \begin{tabular}[c]{@{}l@{}} C\#, Bash, C, CSS, C++, Java, Go,\\HTML, JavaScript, Perl, PHP,\\
+        Ruby, Python, R, SQL, Rust\end{tabular} & 
+        \begin{tabular}[c]{@{}l@{}} $-$\end{tabular} \\
+        % \midrule
+        % & aiXcoder & $-$ & 
+        % \begin{tabular}[c]{@{}l@{}}~\end{tabular} &
+        % \begin{tabular}[c]{@{}l@{}}Python, Java, JavaScript, Typescript, \\Go, PHP, C, C++\end{tabular} & 
+        % \begin{tabular}[c]{@{}l@{}}VS Code, IntelliJ IDEA, PyCharm,~\\STS3,~WebStorm,~Rider, Clion, STS4\\Android Studio,~PhpStorm, Eclipse,\\GoLand\end{tabular} \\ 
+        % \midrule
+        % & IntelliCode & $-$ & 
+        % \begin{tabular}[c]{@{}l@{}}~\end{tabular} &
+        % \begin{tabular}[c]{@{}l@{}}Python, Java, JavaScript, TypeScript, \\C\#, C++, SQL Server, XAML\end{tabular} & VS Code, Visual Studio \\ 
+        \bottomrule
+    \end{tabular}
+}
+}
+\end{table}

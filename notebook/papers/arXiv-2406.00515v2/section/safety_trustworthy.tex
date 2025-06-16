@@ -1,0 +1,147 @@
+\subsection{Code LLMs Alignment}\label{sec:responsible_codeai}
+% The pre-training of next-token prediction based on maximizing conditional generation probability on tremendous textual corpora endows the LLMs with world knowledge and emergency capabilities \cite{brown2020language}. 
+% This training paradigm facilitates the generation of coherent and fluent text in response to various instructions.
+% However, LLMs may still misunderstand human instruction that deviate from human intentions and values, generate biased content or factually incorrect information  (known as hallucination), which can limit their practical usefulness \cite{wang2023aligning,zhao2023survey,ji2023ai}.
+The pre-training of LLMs for next-token prediction, aimed at maximizing conditional generation likelihood across vast textual corpora, equips these models with extensive world knowledge and emergent capabilities \cite{brown2020language}. 
+This training approach enables the generation of coherent and fluent text in response to diverse instructions. 
+Nonetheless, LLMs can sometimes misinterpret human instructions, produce biased content, or generate factually incorrect information (commonly referred to as hallucinations), which may limit their practical utility \cite{wang2023aligning,zhao2023survey,ji2023ai}.
+
+% Consequently, making LLMs behave in line with human intentions and values, referred to as LLMs alignment, has emerged as a pivotal area of research \cite{ji2023ai,wang2023aligning}. 
+% There are commonly-mentioned key objectives of LLMs alignment, including Robustness, Interpretability, Controllability, Ethicality, Trustworthy, Ethical, Security, Privacy, Fairness, and Safety.
+% In recent years, a great efforts from LLMs researchers has been made to achieve this alignment, such as Reinforcement Learning with Human Feedback (RLHF) \cite{ouyang2022training}.
+Aligning LLMs with human intentions and values, known as LLM alignment, has consequently become a critical research focus \cite{ji2023ai,wang2023aligning}. 
+Key objectives frequently discussed in the context of LLM alignment include robustness, interpretability, controllability, ethicality, trustworthiness, security, privacy, fairness, and safety. 
+In recent years, significant efforts have been made by researchers to achieve this alignment, employing techniques such as Reinforcement Learning with Human Feedback (RLHF) \cite{ouyang2022training}.
+
+
+% However, it is not well explored to discuss the code LLMs alignment. Compared with text generation of LLMs, code generation is even more necessary to align with human values. For example, for users without any programming background, they prompt the LLMs to generate the source code and then execute it on their computer. It may potential bring catastrophic damages. To name a few, 
+However, the alignment of Code LLMs has not been extensively explored. 
+Compared to text generation, aligning code generation with human intentions and values is even more crucial. For instance, users without programming expertise might prompt Code LLM to generate source code and subsequently execute it on their computers, potentially causing catastrophic damage. Some potential risks include:
+\begin{itemize}
+    \item \textbf{Malware Infection}: The code could contain viruses, worms, or trojans that compromise our system's security.
+    \item \textbf{Data Loss}: It might delete or corrupt important files and data.
+    \item \textbf{Unauthorized Access}: It can create backdoors, allowing attackers to access our system remotely.
+    \item \textbf{Performance Issues}: The code might consume excessive resources, slowing down our system.
+    \item \textbf{Privacy Breaches}: Sensitive information, such as passwords or personal data, might be stolen.
+    \item \textbf{System Damage}: It may alter system settings or damage hardware components.
+    \item \textbf{Network Spread}: It could propagate across networks, affecting other devices.
+    \item \textbf{Financial Loss}: If the code is ransomware, it might encrypt data and demand payment for decryption.
+    \item \textbf{Legal Consequences}: Running certain types of malicious code can lead to legal repercussions.
+\end{itemize} 
+% As can be seen, ensuring the code LLMs alignment to generate source code aligned with human preference and values has huge significance in software development.
+% Most recently, a study \cite{yang2024robustness} presents the first systematic literature review to identify seven important non-functional properties of LLM4Code beyond accuracy, including robustness, security, privacy, explainability, efficiency, and usability. This study is highly relevant to Code LLMs alignment.
+% We recommend reader to refer to this survey for more details.
+As illustrated, aligning Code LLMs to produce source code consistent with human preferences and values is of paramount importance in software development. A recent study \cite{yang2024robustness} provides the first systematic literature review identifying seven critical non-functional properties of LLMs for code, beyond accuracy, including robustness, security, privacy, explainability, efficiency, and usability. This study is highly pertinent to the alignment of Code LLMs. We recommend readers refer to this survey for more detailed insights.
+
+
+
+
+% \done{LLMs} have exhibited remarkable instruction-following capabilities through instruction tuning. 
+% However, they often produce outputs that are unexpected, toxic, biased, or hallucinated outputs that do not align with users' intentions or preferences \cite{ouyang2022training,wang2023aligning,ji2023ai}.
+
+% In this survey, we identify five principles as the key objectives of Code LLMs alignment: Green, Responsible, Efficiency, Safety, and Trustworthy (\textbf{GREST}) from a broader perspectives.
+% For each category, it involves some concepts and properties. We summarize them in the Table \ref{tab:codellm_alignment}.
+% \input{tables/codellm_alignment}
+% In the following, we first define each principles and then briefly introduce a few typical works to enhance understanding.
+In this survey, we identify five core principles that serve as the key objectives for aligning Code LLMs: Green, Responsibility, Efficiency, Safety, and Trustworthiness (collectively referred to as \textbf{GREST}). These principles are examined from a broader perspective. Each category encompasses various concepts and properties, which are summarized in Table \ref{tab:codellm_alignment}. 
+\input{tables/codellm_alignment}
+In the following, we define each principle and briefly introduce a few notable works to enhance understanding.
+
+\textbf{Green}: 
+% Green principle emphasizes the importance of environmental sustainability in the development and deployment of LLMs for code generation. 
+% It generally involves optimizing energy consumption, reducing the carbon footprint and financial costs during training and inference. 
+The Green principle underscores the importance of environmental sustainability in the development and deployment of LLMs for code generation. This involves optimizing energy consumption and reducing both the carbon footprint and financial costs associated with training and inference processes.
+% However, current (Code) LLMs training, inference, and deployment are an extremely resource-intensive process. For example, training GPT-3 with 175 billion parameters, required 355 years of single-processor computing time and consumed 284,000 kWh of energy, and estimates of 552.1 tons of CO$_2$ \cite{samsi2023words}.
+% What's more, a ChatGPT-like application with estimated use of 11 million requests/hour produces emissions of 12.8k metric tons of CO2/year, 25 times the carbon emissions for training GPT-3 \cite{chien2023reducing}. 
+Currently, training, inference, and deployment of Code LLMs are notably resource-intensive. For example, training GPT-3, with its 175 billion parameters, required the equivalent of 355 years of single-processor computing time and consumed 284,000 kWh of energy, resulting in an estimated 552.1 tons of CO$_2$ emissions \cite{samsi2023words}. 
+Furthermore, a ChatGPT-like application, with an estimated usage of 11 million requests per hour, can produce emissions of 12.8k metric tons of CO$_2$ per year, which is 25 times the carbon emissions associated with training GPT-3 \cite{chien2023reducing}.
+% To mitigate these costs, techniques such as specialized hardware development (e.g., TPUs (Tensor Processing Units) and NPUs (neural processing units)), model compression (e.g., quantization and knowledge distillation), parameter-efficient fine-tuning (PEFT), and renewable energy sources are often employed to adhere to this principle.
+To mitigate these costs, several techniques are often employed, such as the development of specialized hardware (e.g., Tensor Processing Units (TPUs) and Neural Processing Units (NPUs)), model compression methods (e.g., quantization and knowledge distillation), parameter-efficient fine-tuning (PEFT), and the use of renewable energy sources.
+% For example, Shi et al. \cite{shi2024greening} use knowledge distillation to reduce the size of CodeBERT \cite{feng2020codebert} and GraphCodeBERT \cite{guo2020graphcodebert} to a optimized models with 3MB, which is $160\times$ smaller than the original large models, and significantly reduce the energy consumption (up to $184\times$ less) and carbon footprint (up to $157\times$ less).
+% Wei et al. \cite{wei2023towards} utilize quantization technique for Code LLMs (CodeGen \cite{nijkamp2022codegen} and Incoder \cite{fried2022incoder}) parameters with lower-bit integer (e.g., \texttt{int8}), which makes Code LLMs reduce storage by 67.3\% to 70.8\%, carbon footprint by 28.8\% to 55.0\%, and pricing cost by 28.9\% to 55\%. 
+For instance, Shi et al. \cite{shi2024greening} applied knowledge distillation to reduce the size of CodeBERT \cite{feng2020codebert} and GraphCodeBERT \cite{guo2020graphcodebert}, resulting in optimized models of just 3MB. These models are 160 times smaller than the original large models and significantly reduce energy consumption by up to 184 times and carbon footprint by up to 157 times. Similarly, Wei et al. \cite{wei2023towards} utilized quantization techniques for Code LLMs such as CodeGen \cite{nijkamp2022codegen} and Incoder \cite{fried2022incoder} by employing lower-bit integers (e.g., \texttt{int8}). This approach reduced storage requirements by 67.3\% to 70.8\%, carbon footprint by 28.8\% to 55.0\%, and pricing costs by 28.9\% to 55.0\%.
+
+\textbf{Responsibility}: 
+% Responsible principle emphasizes ethical considerations, fairness, and accountability throughout the lifecycle of (Code) LLMs. 
+% This includes addressing biases in training data, ensuring fairness and transparency in model decision-making, maintaining accountability for outputs, adhering to relevant laws (e.g., copyright), implementing mechanisms to prevent misuse, and clear communication regarding the model's capabilities and limitations.
+The Responsibility principle in the context of Code LLMs underscores the importance of ethical considerations, fairness, and accountability throughout their lifecycle. This involves addressing biases in training data, ensuring fairness and transparency in model decision-making, maintaining accountability for outputs, adhering to applicable laws (e.g., copyright), implementing safeguards against misuse, and providing clear communication about the model's capabilities and limitations.
+Specifically, 
+\begin{itemize}
+    % (1) biases in code generation can lead to flawed software or reinforce stereotypes, which can have significant societal impacts. 
+    % For instance, if an LLM used for generating code inherits biases from its training data, it might produce software that inadvertently discriminates against certain user groups. 
+    % This can result in applications that do not cater to the diverse needs of users, leading to exclusionary practices and reinforcing existing stereotypes \cite{mouselinos2022simple,liu2023uncovering}. 
+    \item \textit{Bias Mitigation}. Biases in code generation can lead to flawed software and reinforce stereotypes, potentially causing significant societal impacts. For example, an Code LLM that inherits biases from its training data may produce source code/software that inadvertently discriminates against certain user groups. This can result in applications that fail to meet the diverse needs of users, promoting exclusionary practices and reinforcing existing stereotypes \cite{mouselinos2022simple,liu2023uncovering}.
+    % (2) A lack of fairness and transparency in decision-making with LLMs for code generation can lead to biased or suboptimal code solutions. If the model's decision-making process is opaque, developers might inadvertently introduce code that favors certain frameworks or libraries, limiting innovation and diversity in software development. This lack of transparency can lead to unfair advantages and hinder collaborative efforts in tech communities \cite{bogina2022educating}.
+    \item \textit{Fairness and Transparency}. A lack of fairness and transparency in Code LLM decision-making can result in biased or suboptimal code solutions. If the model's decision-making process is opaque, developers might unknowingly introduce code that favors specific frameworks or libraries, thereby limiting innovation and diversity in software development. This opacity can create unfair advantages and hinder collaborative efforts within tech communities \cite{bogina2022educating}.
+    % (3) Adhering to relevant laws, such as license and copyright, is essential when using LLMs for code generation to avoid legal complications and determine whether the code generated by LLMs can be actually used in practice or not. 
+    % If an LLM generates code snippets that inadvertently infringe on existing copyrights, it can lead to legal disputes and financial liabilities for developers and organizations \cite{xu2024first}. 
+    % This can hinder innovation by discouraging the use of advanced AI tools due to fear of legal repercussions, thus affecting the broader tech community's growth and collaboration.
+    \item \textit{Legal Compliance}. Compliance with relevant laws, such as licensing and copyright, is crucial when using Code LLMs for code generation to avoid legal complications. If an Code LLM generates code snippets that inadvertently infringe on existing copyrights, it can lead to legal disputes and financial liabilities for developers and organizations \cite{xu2024first}. Such risks may discourage the use of advanced AI tools, thus stifling innovation and affecting growth and collaboration within the tech community.
+    % (4) Without accountability for the code generated by LLMs, it becomes difficult to address bugs or security vulnerabilities. If a model generates faulty code that leads to a security breach, the absence of clear accountability could result in significant financial and reputational damage for companies. This uncertainty in responsibility can delay the resolution of critical issues and impede trust in AI-assisted development \cite{liesenfeld2023opening}.
+    \item \textit{Accountability}. Without accountability for code generated by Code LLMs, addressing bugs or security vulnerabilities becomes challenging. If a model generates faulty code leading to a security breach, the absence of clear accountability can result in significant financial and reputational damage for companies. This uncertainty can delay critical issue resolution and impede trust in AI-assisted development \cite{liesenfeld2023opening}.
+    % (5) Failing to implement mechanisms to prevent misuse of code generation models can allow for the creation of harmful software. For instance, models could be exploited to generate malware or unauthorized scripts, posing risks to cybersecurity. Without safeguards, these models can facilitate malicious activities, threatening both individual and organizational security \cite{mousavi2024investigation}.
+    \item \textit{Misuse Prevention}. Failing to implement mechanisms to prevent the misuse of Code LLMs can enable the creation of harmful software. For example, models could be exploited to generate malware or unauthorized scripts, posing cybersecurity risks. Without proper safeguards, these models can facilitate malicious activities, threatening both individual and organizational security \cite{mousavi2024investigation}.
+    % (6) Without clear communication about a model's capabilities and limitations in code generation, developers may misuse the model or overestimate its abilities. For example, relying on the model to generate complex, mission-critical code without human oversight could lead to significant software failures. Misunderstanding its limitations can result in faulty implementations and lost productivity \cite{ross2023programmer}.
+    \item \textit{Clear Communication}. Without clear communication about a model's capabilities and limitations, developers may misuse the model or overestimate its abilities. Relying on the model to generate complex, mission-critical code without human oversight can lead to significant software failures. Misunderstanding its limitations can result in faulty implementations and lost productivity \cite{ross2023programmer}.
+\end{itemize}
+% Potential mitigation methods such as bias detection and mitigation, quantification and evaluation, and ethical guidelines are essential to adhere to this principle. 
+% Liu et al. \cite{liu2023uncovering} propose a new paradigm to construct code prompts and successfully uncover social biases in code generation models, and develop a dataset along with three metrics to evaluate the overall social bias.
+% Most recently, Xu et al. \cite{xu2024first} propose an evaluation benchmark LiCoEval, to evaluate the license compliance capabilities of LLMs.
+% Additionally, incorporating diverse perspectives in the development teams and engaging with stakeholders from various communities can further align Code LLM outputs with ethical standards and societal values.
+To adhere to this principle, potential mitigation methods include bias detection and mitigation, quantification and evaluation, and adherence to ethical guidelines. 
+Liu et al. \cite{liu2023uncovering} propose a new paradigm for constructing code prompts, successfully uncovering social biases in code generation models, and developing a dataset along with three metrics to evaluate overall social bias. 
+Recently, Xu et al. \cite{xu2024first} introduced LiCoEval, an evaluation benchmark for assessing the license compliance capabilities of LLMs. Additionally, incorporating diverse perspectives in development teams and engaging with stakeholders from various communities can further align Code LLM outputs with ethical standards and societal values.
+
+
+\textbf{Efficiency}: 
+% Efficiency principle focuses on maximizing the performance and speed of LLMs for code generation while minimizing computational resources for model training and inference.
+% For example, GPT-3 with 175 billion parameters requires very high resources in training, which takes around 1,024 NVIDIA V100 GPUs and costing around 4.6M and 34 days to train the model. 
+% Various model compression (e.g., pruning, quantization, and knowledge distillation), optimized algorithms (e.g., AdamW), parallel strategies (e.g, tensor, pipeline, and data parallelism), and parameter-efficient fine-tuning (see Section \ref{sec:peft}) are often employed to achieve this goal.
+% For the comprehensive and detailed methods to enhance efficiency of LLMs for code generation, please refer to the Section 4.5.2 Efficiency Enhancement in \cite{yang2024robustness}.
+The Efficiency principle emphasizes optimizing the performance and speed of Code LLMs for code generation while minimizing the computational resources required for training and inference. 
+For instance, training the GPT-3 model, which consists of 175 billion parameters, demands substantial resources. It requires approximately 1,024 NVIDIA V100 GPUs, costing around $4.6$ million and taking approximately 34 days to complete the training process. 
+To address these challenges, various techniques are employed, including model compression methods such as pruning, quantization, and knowledge distillation. Additionally, optimized algorithms like AdamW, parallel strategies such as tensor, pipeline, and data parallelism, and parameter-efficient fine-tuning (PEFT) (see Section \ref{sec:peft}) are often utilized. 
+For a comprehensive and detailed discussion on methods to enhance the efficiency of Code LLMs for code generation, please refer to Section 4.5.2, ``Efficiency Enhancement'', in \cite{yang2024robustness}.
+
+\textbf{Safety}: 
+% Safety principle involves rigorous testing and validation processes to detect and mitigate risks associated with generated code by LLMs. 
+% Ensuring the safety of LLMs in code generation is paramount, as these models can potentially introduce vulnerabilities, errors, or privacy information into software systems.
+The Safety principle of Code LLMs is of utmost importance due to their potential to introduce vulnerabilities, errors, or privacy breaches into software systems. 
+Ensuring safety involves comprehensive testing and validation processes to detect and mitigate these risks.
+% For example, attackers can manipulate the training process of LLMs by injecting poisoned examples into the training data known as data poisoning attacks to let model produce undesired/vulnerable/error code \cite{schuster2021you}. 
+% When attackers can not access the training process, Hajipour et al. \cite{hajipour2024codelmsec} introduce a black-box inversion approach based on few-shot prompting, which finds relevant prompts that lead black-box code generation models to generate vulnerable code.
+% Moreover, Yang et al. \cite{yang2024unveiling} and Al-Kaswan et al. \cite{al2024traces} find that Code LLMs (like CodeParrot \cite{codeparrot}) can potential memorize its training data to produce personally identifiable information like emails, names, IP addresses, highlighting the privacy leakage risks. 
+% Yuan et al. \cite{yuan2023gpt} discover that chat with ChatGPT and GPT-4 in cipher (non-natural language) can bypass the safety alignment techniques of LLMs, leading to unsafe behaviors, like "stealing money from the bank". 
+For instance, attackers might compromise the training process of LLMs by injecting malicious examples into the training data, a method known as data poisoning attacks \cite{schuster2021you}. 
+Even when attackers lack access to the training process, they may employ techniques like the black-box inversion approach introduced by Hajipour et al. \cite{hajipour2024codelmsec}. This method uses few-shot prompting to identify prompts that coax black-box code generation models into producing vulnerable code. 
+Furthermore, Yang et al. \cite{yang2024unveiling} and Al-Kaswan et al. \cite{al2024traces} reveals that Code LLMs, such as CodeParrot \cite{codeparrot}, can memorize training data, potentially outputting personally identifiable information like emails, names, and IP addresses, thereby posing significant privacy risks. Additionally, Yuan et al. \cite{yuan2023gpt} demonstrate that engaging with ChatGPT and GPT-4 in non-natural languages can circumvent safety alignment measures, leading to unsafe outcomes, such as ``The steps involved in stealing money from a bank.''.
+% To enhance the safety of LLMs for code generation, detecting and removing the privacy information contained in training data is the prevalent way. 
+% For example,  \cite{fried2022incoder} and \cite{allal2023santacoder} carefully design regular expressions to identify all the privacy information in the training data and remove it. 
+% Moreover, to defend against black-box inversion, it is advisable to implement prompt filtering mechanisms to identify and block prompts that may lead to the generation of insecure code. 
+% Additionally, employing adversarial training techniques can enhance the model's resilience against malicious prompts. 
+% Utilizing reinforcement learning techniques can further align Code LLMs with human preferences, reducing the likelihood of harmful outputs.
+To bolster the safety of LLMs in code generation, it is crucial to detect and eliminate privacy-related information from training datasets. 
+For example, approaches outlined in \cite{fried2022incoder} and \cite{allal2023santacoder} utilize carefully crafted regular expressions to identify and remove private information from training data. 
+To counteract black-box inversion, implementing prompt filtering mechanisms is recommended to identify and block prompts that might result in insecure code generation. 
+Moreover, adversarial training can enhance the model's resilience to malicious prompts. Employing reinforcement learning methods can further align Code LLMs with human preferences, thereby reducing the likelihood of producing harmful outputs.
+
+\textbf{Trustworthiness}: 
+% Trustworthy principle revolves around creating models that users can rely on for accurate and reliable outputs, which is essential for their acceptance and widespread use.  
+% This involves ensuring model transparency, providing explanations for decisions, and maintaining consistent performance across various scenarios.
+The Trustworthiness principle focuses on developing Code LLMs that users can depend on for accurate and reliable code generation, which is crucial for their acceptance and widespread adoption. 
+Achieving this requires ensuring model transparency, providing explanations for decisions, and maintaining consistent performance across various scenarios.
+% For example, Ji et al. \cite{ji2023benchmarking} propose a causal graph-based representation of the prompt and the generated code to identify the causal relations between the prompt and the derived code. Thus, it provides insights into LLM effectiveness, and aid end-users in understanding predictions. 
+% Palacio et al. \cite{palacio2023evaluating} propose ASTxplainer, which extracts and aggregate normalized model logits within AST structures to align token predictions with AST nodes, to provide visualizations of LLM predictions that aid end-users in understanding model predictions.  
+% Therefore, by prioritizing trustworthiness, it can enhance user confidence and facilitate the integration of LLMs into diverse coding environments.
+For instance, Ji et al. \cite{ji2023benchmarking} propose a causal graph-based representation of prompts and generated code to identify the causal relationships between them. This approach offers insights into the effectiveness of Code LLMs and assists end-users in understanding the generation. 
+Similarly, Palacio et al. \cite{palacio2023evaluating} introduce ASTxplainer, a tool that extracts and aggregates normalized model logits within Abstract Syntax Tree (AST) structures. This alignment of token predictions with AST nodes provides visualizations that enhance end-user understanding of Code LLM predictions.
+Therefore, by prioritizing trustworthiness, we can bolster user confidence and facilitate the integration of Code LLMs into diverse coding environments.
+% By adhering to above-mentioned five principles as the key objectives of Code LLMs alignment, researchers and developers can build LLMs for code generation that are not only powerful but also ethical, sustainable, and user-centric.
+By adhering to the aforementioned principles as key objectives for aligning Code LLMs, researchers and developers can create LLMs for code generation that are not only capable but also ethical, sustainable, and user-centric.
+
+
+
+
+
+
+

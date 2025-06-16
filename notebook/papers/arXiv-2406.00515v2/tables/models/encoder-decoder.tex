@@ -1,0 +1,28 @@
+\begin{table}[t]
+\caption{\done{The overview of \done{LLMs} with encoder-decoder architectures for code generation.} 
+}
+\label{tab:encoder_decoder_models}
+\centering
+\scalebox{0.8}{
+\rotatebox{0}{
+    \begin{tabular}{lllcccc} 
+    \toprule
+    \textbf{Model} & \textbf{Institution} & \textbf{Size} & \textbf{Vocabulary} & \textbf{\makecell[c]{Context\\ Window}} & \textbf{Date} & \textbf{Open Source} \\
+    \midrule
+    % \multirow{13}*{Encoder-Decoder} 
+     PyMT5\cite{clement2020pymt5}  & Microsoft & 374M &50K &1024+1024  & 2020-10 & \\
+     PLBART\cite{ahmad2021unified} & UCLA & 140M &	50K &1024+1024 &  2021-03 & \CheckmarkBold  \\
+     CodeT5 \cite{wang2021codet5} & Salesforce & 60M, 220M, 770M & 32K &512+256 & 2021-09 & \CheckmarkBold  \\
+    JuPyT5\cite{chandel2022training}  &Microsoft  & 350M & 50K & 1024+1024 &2022-01&   \\
+     AlphaCode\cite{li2022competition}& DeepMind & \makecell[l]{284M, 1.1B, 2.8B,\\ 8.7B, 41.1B} &	8K & 1536+768 & 2022-02 & \\
+    CodeRL\cite{le2022coderl} &Salesforce& 770M &	32K &512+256 &2022-06&\CheckmarkBold \\
+     ERNIE-Code\cite{chai2022ernie} &  Baidu & 560M & 250K &1024+1024 & 2022-12 & \CheckmarkBold\\
+    PPOCoder\cite{shojaee2023execution}  & Virginia Tech & 770M &32K &512+256 &2023-01&   \\
+    CodeT5+\cite{wang2023codet5+}& Salesforce & \makecell[l]{220M, 770M, 2B,\\ 6B, 16B} & 50K &2048+2048 & 2023-05 & \CheckmarkBold \\
+    CodeFusion\cite{singh2023codefusion}& Microsoft & 75M & 32k	& 128+128 &2023-10& \CheckmarkBold \\
+    AST-T5\cite{gong2024ast}  &UC Berkeley & 226M & 32k & 512+200/300 &2024-01& \CheckmarkBold \\
+    \bottomrule
+    \end{tabular}
+}
+}
+\end{table}
